@@ -27,10 +27,18 @@ maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>Q"] = { "<cmd>confirm qall<cr>", desc = "Quit all" }
 maps.n["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" }
-maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
-maps.n["<C-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" }
+-- maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
+-- maps.n["<C-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
+maps.i["<C-h>"] = { "<Left>", desc = "Move cursor left"}
+maps.i["<C-j>"] = { "<Down>", desc = "Move cursor down"}
+maps.i["<C-w>"] = { "<Up>", desc = "Move cursor up"}
+maps.i["<C-l>"] = { "<Right>", desc = "Move cursor right"}
+maps.i["<Left>"] =  { "", desc = "Disable"}
+maps.i["<Down>"] =  { "", desc = "Disable"}
+maps.i["<Up>"] =    { "", desc = "Disable"}
+maps.i["<Right>"] = { "", desc = "Disable"}
 -- TODO: Remove when dropping support for <Neovim v0.10
 if not vim.ui.open then maps.n["gx"] = { utils.system_open, desc = "Open the file under cursor with system app" } end
 
@@ -341,7 +349,7 @@ if is_available "toggleterm.nvim" then
     maps.n["<leader>tu"] = { function() utils.toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" }
   end
   if vim.fn.executable "btm" == 1 then
-    maps.n["<leader>tt"] = { function() utils.toggle_term_cmd "btm" end, desc = "ToggleTerm btm" }
+    maps.n["<leader>tb"] = { function() utils.toggle_term_cmd "btm" end, desc = "ToggleTerm btm" }
   end
   local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
   if python then maps.n["<leader>tp"] = { function() utils.toggle_term_cmd(python) end, desc = "ToggleTerm python" } end
@@ -349,6 +357,7 @@ if is_available "toggleterm.nvim" then
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
   maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
+  maps.n["<leader>tt"] = maps.n["<F7>"]
   maps.t["<F7>"] = maps.n["<F7>"]
   maps.n["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
   maps.t["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
@@ -429,6 +438,7 @@ maps.t["<C-h>"] = { "<cmd>wincmd h<cr>", desc = "Terminal left window navigation
 maps.t["<C-j>"] = { "<cmd>wincmd j<cr>", desc = "Terminal down window navigation" }
 maps.t["<C-k>"] = { "<cmd>wincmd k<cr>", desc = "Terminal up window navigation" }
 maps.t["<C-l>"] = { "<cmd>wincmd l<cr>", desc = "Terminal right window navigation" }
+maps.t["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode"}
 
 maps.n["<leader>u"] = sections.u
 -- Custom menu for modification of the user experience
