@@ -29,7 +29,7 @@ return {
       context_commentstring = { enable = true, enable_autocmd = false },
       highlight = {
         enable = true,
-        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
+        disable = { "bash", function(_, bufnr) return vim.b[bufnr].large_buf end},
       },
       incremental_selection = { enable = true },
       indent = { enable = true },
