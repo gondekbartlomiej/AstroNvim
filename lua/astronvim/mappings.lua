@@ -24,8 +24,8 @@ local sections = {
 maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
 maps.n["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
-maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
-maps.n["<leader>Q"] = { "<cmd>confirm qall<cr>", desc = "Quit all" }
+-- maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
+-- maps.n["<leader>Q"] = { "<cmd>confirm qall<cr>", desc = "Quit all" }
 maps.n["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" }
 
 -- maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
