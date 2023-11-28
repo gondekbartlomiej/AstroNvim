@@ -132,4 +132,10 @@ return {
       float_opts = { border = "rounded" },
     },
   },
+  {
+    'gondekbartlomiej/cmake-tools.nvim',
+    config = require "plugins.configs.cmake-tools",
+    lazy = false,
+    branch = "my_changes",
+  }
 }
