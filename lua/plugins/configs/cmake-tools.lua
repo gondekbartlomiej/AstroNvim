@@ -2,7 +2,7 @@ return function()
   local cmake_tools = require "cmake-tools"
   cmake_tools.setup {
     cmake_command = "cmake", -- this is used to specify cmake command path
-    cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
+    cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
     cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
     cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
     -- support macro expansion:
@@ -58,7 +58,7 @@ return function()
         start_insert_in_launch_task = false, -- If you want to enter terminal with :startinsert upon using :CMakeRun
         start_insert_in_other_tasks = false, -- If you want to enter terminal with :startinsert upon launching all other cmake tasks in the terminal. Generally set as false
         focus_on_main_terminal = true, -- Focus on cmake terminal when cmake task is launched. Only used if executor is terminal.
-        focus_on_launch_terminal = false, -- Focus on cmake launch terminal when executable target in launched.
+        focus_on_launch_terminal = true, -- Focus on cmake launch terminal when executable target in launched.
       },
     },
     cmake_notifications = {
